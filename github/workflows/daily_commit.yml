@@ -1,9 +1,11 @@
-name: Daily Empty Commit
+name: Twice Daily Empty Commit
 
 on:
   schedule:
-    # Runs every day at midnight UTC
+    # Runs at midnight UTC
     - cron: "0 0 * * *"
+    # Runs at midday (noon) UTC
+    - cron: "0 12 * * *"
 
 jobs:
   build:
