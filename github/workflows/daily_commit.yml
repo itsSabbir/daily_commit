@@ -1,0 +1,21 @@
+name: Daily Empty Commit
+
+on:
+  schedule:
+    # Runs every day at midnight UTC
+    - cron: "0 0 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Create Empty Commit attributed to you
+        run: |
+          git config user.name "sabbir hossain"
+          git config user.email "hossain.sabbir17@gmail.com"
+          git commit --allow-empty -m "chore: daily empty commit"
+          git push
